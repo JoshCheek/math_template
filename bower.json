@@ -1,0 +1,21 @@
+{
+  "name": "e_to_the_i_pi",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Josh Cheek <josh.cheek@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "function-plot": "^1.17.1"
+  }
+}
