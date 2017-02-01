@@ -8,6 +8,21 @@
 <!-- Github / API:     https://github.com/maurizzzio/function-plot -->
 <script src="bower_components/function-plot/dist/function-plot.js"></script>
 
+<!-- http://docs.mathjax.org/en/latest/start.html -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    config: ["AM_CHTML-full.js"],
+    AsciiMath: {
+      fixphi: true,
+      useMathMLspacing: true,
+      displaystyle: true,
+      decimalsign: "."
+    }
+  });
+</script>
+<script async src="bower_components/MathJax/unpacked/MathJax.js"></script>
+
+
 <script>
 window.addPlot = function(fnPlotAttrs) {
   var element = document.createElement('div')
@@ -17,6 +32,14 @@ window.addPlot = function(fnPlotAttrs) {
 }
 </script>
 
+When
+`a != 0`,
+there are two solutions to
+`ax^2 + bx + c = 0`
+and they are
+`x = (-b +- sqrt(b^2-4ac)) / (2a)`.
+
+Also, here is a sum: `sum_(i=0)^10 x^10`
 
 <p>before</p>
 

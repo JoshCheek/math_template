@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "function-plot": "^1.17.1"
+    "function-plot": "^1.17.1",
+    "MathJax": "^2.7.0"
   }
 }
