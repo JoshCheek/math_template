@@ -1,54 +1,82 @@
 <!doctype html>
 
+<!-- METADATA -->
 <meta charset="utf-8">
-<title>E to the i π + 1 = 0</title>
+<title>e^iπ + 1 = 0</title>
+
+
+<!-- TOSS SOME STYLES UP IN HERE! -->
+<style>
+body {
+  margin:        3em;
+  margin-bottom: 5em;
+  font-size:     1.5em;
+}
+.function-plot-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.function-plot {
+  border: 2px solid black;
+}
+</style>
+
+
+<!-- CONFIGURE AND LOAD THE LIBRARIES -->
+<!-- function-plot for graphing (it depends on d3) -->
 <script src="bower_components/d3/d3.min.js"></script>
-
-<!-- Tons of examples: http://maurizzzio.github.io/function-plot/  -->
-<!-- Github / API:     https://github.com/maurizzzio/function-plot -->
 <script src="bower_components/function-plot/dist/function-plot.js"></script>
-
-<!-- http://docs.mathjax.org/en/latest/start.html -->
+<!-- MathJax for rendering equations http://docs.mathjax.org/en/latest/start.html -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    // AsciiMath to common html
-    config: ["AM_CHTML-full.js"],
-    AsciiMath: {
-      fixphi: true,
-      useMathMLspacing: true,
-      displaystyle: true,
-      decimalsign: "."
-    }
-  });
+MathJax.Hub.Config({
+  config: ["AM_CHTML-full.js"], // AsciiMath to common html
+  AsciiMath: {
+    fixphi:           true,
+    useMathMLspacing: true,
+    displaystyle:     true,
+    decimalsign:      ".",
+  }
+});
 </script>
+<!-- load the library after configuring it, IDK why -->
 <script async src="bower_components/MathJax/unpacked/MathJax.js"></script>
 
 
+<!-- HELPER JAVASCRIPTS -->
 <script>
+// builds the element and adds it to the page
 window.addPlot = function(fnPlotAttrs) {
   var element = document.createElement('div')
+  element.classList.add("function-plot-container")
   fnPlotAttrs.target = element
   functionPlot(fnPlotAttrs)
   document.body.appendChild(element);
 }
 </script>
 
-<!-- http://asciimath.org/#syntax -->
-When
-`a != 0`,
-there are two solutions to
-`ax^2 + bx + c = 0`
-and they are
-`x = (-b +- sqrt(b^2-4ac)) / (2a)`.
 
-Also, here is a sum: `sum_(i=0)^10 x^10`
 
-<p>before</p>
+
+<!-- THE CONTENT -->
+
+<!-- Backticks get rendered with AsciiMath http://asciimath.org/#syntax -->
+How do we solve for x in this quadratic equation? `ax^2 + bx + c = 0`
+We use the quadratic formula!  `x = (-b +- sqrt(b^2-4ac)) / (2a)`.
+
+<!-- Tons of examples: http://maurizzzio.github.io/function-plot/  -->
+<!-- Github / API:     https://github.com/maurizzzio/function-plot -->
+<script>addPlot({data: [{fn: '5x^2 + 3x - 1'}]})</script>
+
+Check out this sweet sum! `sum_(i=0)^10 x^10`
+And a more sophisticated graph:
 
 <script>
 addPlot({
-  data: [{fn: 'x^2'}]
+  grid: true,
+  xAxis: { label: 'Latitude' },
+  yAxis: { label: 'Altitude', domain: [-2, 2] },
+  data: [
+    { fn: '3 / (1 + exp(-x/2)) - 1.5' },
+  ],
 })
 </script>
-
-<p>after</p>
